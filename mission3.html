@@ -31,6 +31,11 @@
   <section id="analysis">
     <header>Thème : Desserts / Boissons</header>
     <p><strong><em> Y en a-t-il qui vendent les deux boissons et desserts ? </em></strong></p>
+    <p>J’ai fait un double SELECT (un pour les desserts et pour les boissons), j’ai
+      nommé produit P1 et P2 pour ne pas confondre les desserts et les boissons,
+      et de même pour leurs code catégorie, puis j’ai fait un INNER JOIN entre les
+      produits et leurs code catégorie OÙ les noms des catégories étaient des
+      desserts et des boissons</p>
     <p><strong>Code SQL :</strong> </p><code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
       FROM Fournisseur
       WHERE Fournisseur.NoFour IN (
@@ -59,15 +64,18 @@
     <header>Thème : Provenance des produits</header>
     <p><em><strong>Quels sont les pays de provenance de ces catégories ?
     </strong></em></p>
+    <p>voici la requête SQL qui permet d’avoir ce résultat :</p>
     <code>SELECT DISTINCT Fournisseur.Pays
     FROM (Categorie
     INNER JOIN Produit ON Categorie.CodeCateg = Prosuit.CodeCateg)
     INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
     WHERE Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons';</code>
-    <p><strong>Resultat :</strong></p>
+    <p><strong>Les pays en provenance de ces catégories sont : </strong></p>
     <img src="1b.png" alt="1b">
     <p><strong><em>Combien y a-t-il des produits correspondants vendus 50€ ou plus ? On veut les connaître
       avec leur pays d’origine.</em></strong></p>
+    <p>Il y a 8 produits correspondants vendus 50€ ou plus, pour cela j’ai
+      realisé la requete SQL suivante :</p>
     <code>SELECT Produit.NomProd, Fournisseur.Pays
     FROM (Categorie
     INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg)
@@ -78,6 +86,10 @@
     <img src="1a.png" alt="1a">
     <header>Thème : La Clientele</header>
     <p><em><strong>Quels sont couples de clients de Besançon pourrait on créer ?</strong></em></p>
+    <p>Pour savoir si je pouvais créer un couple de client de Besançon, j’ai
+      sélectionné la table société depuis la table client, et j’ai gardé les clients OÙ
+      leur ville c’est Besançon, mais j’ai remarqué qu’avec cette requette qu'il me renvoyais le même client 2 fois, pour éviter ça, j’ai rajouté cette ligne à la fin de ma requête SQL :
+      AND C1.CodeCli < C2.CodeCli; </p>
     <code>SELECT C1.SocieteCli AS Client1.SocieteCli AS Client2
     FROM Client AS C1, Client AS C2
     WHERE C1.VilleCli = 'Besancon'
@@ -88,6 +100,12 @@
     <p><strong>Resultat :</strong></p>
     <img src="4b.png" alt="4b">
     <p><strong><em>Certains clients n’ont jamais eu la remise la plus importante de 25%. Qui sont-ils ?</em></strong></p>
+    <p>Pour cette requête j’ai utilisé les tables Client, Commande, et
+      DetailCommande. J’ai fait une sous-requête qui retourne les CodeCli des
+      clients ayant reçu une remise de 25%. Elle relie les commandes aux détails
+      des commandes, puis filtre les lignes où la remise est de 25%. Mais avant
+      j’ai mis NOT IN pour filtrer tout les clients qui ne sont pas dans la liste ayant
+      reçu une remise de 25%.</p>
     <code>SELECT DISTINCT Client.CodeCli, Client.SocieteCli
     FROM Client
     WHERE Client.CodeCli NOT IN (
@@ -99,6 +117,13 @@
     <img src="4c.png" alt="4c">
     <header>Thème : l’offre de KDou</header>
     <p><strong><em>Quels produits n’ont eu que des remises de 10% ou 20% ou pas de remise ? </em></strong></p>
+    <p>Pour cette requête j’ai utilisé les tables Produit et DetailCommande,
+      Comme pour la question d’avant, une sous requête qui retourne les RefProd
+      des produits qui ont bénéficié de remises différentes de 10%, 20%, ou pas
+      de remise. En d'autres termes, elle sélectionne les produits avec des
+      remises comme 25% ou tout autre montant non listé, mais j’ai aussi utilisé
+      la condition NOT IN avant, donc Cette condition exclut tous les produits
+      dont la remise ne correspond pas à 10%, 20%, ou aucune remise.</p>
     <code>SELECT DISTINCT Produit.RefProd, Produit.NomProd
     FROM Produit
     WHERE Produit.RefProd NOT IN (
