@@ -44,24 +44,53 @@
                 <th>Observations</th>
             </tr>
             <tr>
-                <td>Clients</td>
-                <td>Données des clients réguliers et ponctuels</td>
-                <td>La plupart des clients sont réguliers, mais il existe des valeurs manquantes pour certains champs.</td>
+                <td>Fournisseurs</td>
+                <td>Données des Fournisseurs irréguliers et non coherent</td>
+                <td>Les fournisseurs des États-Unis sont représentés de 3 manières different (voir exemple avec image en bas).</td>
             </tr>
             <tr>
-                <td>Produits</td>
-                <td>Catalogue de produits, incluant desserts et boissons</td>
-                <td>Une majorité des produits sont des desserts, et certaines informations de provenance sont manquantes.</td>
+                <td>Fiabilité des données</td>
+                <td>Incohérences et des choix discutables </td>
+                <td>"São Paulo" apparaît deux fois avec la même orthographe et le même pays (Brésil)
+                    Pour les États-Unis, on observe deux orthographes différentes : "Etats-Unis" et
+                    "USA".
+                    Il y a deux mentions de "Chef des ventes" dans la répartition par type de contact. Si
+                    cela représente deux rôles différents (peut-être à des niveaux distincts), une manière
+                    plus claire serait à envisager. Sinon, ça pourrait être une duplication.
+                    Il y a "Versailles" deux fois sur le graphique avec une valeur de 0,5.
+                    Il y a une mention concernant un client spécifique, "L'Ancienne Auberge," qui a
+                    signalé des problèmes de gestion, il faudrait sûrement les prendre en considération
+                    pour s’améliorer.</td>
             </tr>
         </table>
+        <p>Voici un exemple de ce qu'on pouvait faire avec ces données :</p>
+        <div>
+            <img src="offre_produit_suedois.png" alt="Exemple de données" class="img-resize">
+        </div>
+
+        <p>Et Voici les incohérences listées précédemment :</p>
+        <div class="image-flex-container">
+            <img src="mission1/saopaulo.png" alt="São Paulo">
+            <img src="mission1/USA.png" alt="USA">
+            <img src="mission1/Versailles.png" alt="Versailles">
+        </div>
     </section>
 
     <section id="conclusion">
         <h2>Perspectives d’amélioration et Conclusion</h2>
         <p>Pour améliorer la qualité de la base de données, nous recommandons de :</p>
         <ul>
-            <li>Ajouter des contrôles pour éviter les données manquantes.</li>
-            <li>Standardiser les formats de données, notamment pour la provenance des produits.</li>
+            <li>Uniformiser les orthographes des pays dans toutes les colonnes pour éviter les doublons inutiles (ex. : "Etats-Unis" → "USA").</li>
+            <li>De supprimer ou eviter les doublons, Fusionner les lignes comme pour "São Paulo" et les doublons dans les noms de villes, pays et types de contact</li>
+            <li> De Clarification des rôles :
+                Les fonctions similaires comme "Chef  des ventes" et "Chef des ventes"
+                pourraient être fusionnées ou davantage expliquées si elles représentent des rôles qui
+                ne sont pas les mêmes (il y a un espace en trop sur l'un).</li>
+            <li>Réorganisation des données clients :
+                Inclure des informations supplémentaires sur les clients qui se plaignent ou qui
+                nécessitent une attention particulière et de les prendre en considération. Cela
+                permettrait de mieux relier les réclamations aux données de fournisseurs et aux
+                performances et d’améliorer nos services</li>
         </ul>
         <p>En conclusion, cette mission nous a permis de mieux comprendre les données disponibles chez KDou et de poser les bases d’une exploitation optimale.</p>
     </section>
