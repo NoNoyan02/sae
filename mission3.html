@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission 3 - Analyse SQL</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission 3 - Analyse SQL</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 
 <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="mission1.html">Mission 1</a></li>
-            <li><a href="mission2.html">Mission 2</a></li>
-            <li><a href="mission3.html">Mission 3</a></li>
-            <li><a href="conclusion.html">Conclusion</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="mission1.html">Mission 1</a></li>
+      <li><a href="mission2.html">Mission 2</a></li>
+      <li><a href="mission3.html">Mission 3</a></li>
+      <li><a href="conclusion.html">Conclusion</a></li>
+    </ul>
+  </nav>
 </header>
 
 
 <main>
-    <section id="context">
-        <h1>Mission 3 : Analyse SQL</h1>
-        <p>Dans cette mission, nous avons analysé les données de KDou à l'aide de requêtes SQL sur plusieurs thèmes.</p>
-    </section>
+  <section id="context">
+    <h1>Mission 3 : Analyse SQL</h1>
+    <p>Dans cette mission, nous avons analysé les données de KDou à l'aide de requêtes SQL sur plusieurs thèmes.</p>
+  </section>
 
-    <section id="analysis">
-        <h2>Thème : Desserts / Boissons</h2>
-        <p><em>Quelles sont les fournisseurs qui vendent uniquement des boissons ou des desserts :</em></p>
-        <p><strong>Code SQL :</strong> <code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
-            FROM Fournisseur
-            WHERE Fournisseur.NoFour IN (
-            SELECT Pi.NoFour
-            FROM Produit AS P1
-            INNER JOIN Categorie AS C1 ON P1.CodeCateg = C1.CodeCateg
-            WHERE C1.NomCateg = Desserts
-            JAND Fournisseur,NoFour IN [
-            SELECT P2.NoFour
-            FROM Produit AS P2
-            INNER JOIN Categorie AS C2 ON P2.CodeCateg- C2.CodeCateg
-            WHERE C2,NomCateg = "Boissons"
-            );</code></p>
-        <p><strong>Résultat :</strong></p>
-        <img src="Resultat_SQL_Mission3.png" alt="resultat">
-    </section>
+  <section id="analysis">
+    <h2>Thème : Desserts / Boissons</h2>
+    <p><em>Quelles sont les fournisseurs qui vendent uniquement des boissons ou des desserts :</em></p>
+    <p><strong>Code SQL :</strong> <code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
+      FROM Fournisseur
+      WHERE Fournisseur.NoFour IN (
+      SELECT Pi.NoFour
+      FROM Produit AS P1
+      INNER JOIN Categorie AS C1 ON P1.CodeCateg = C1.CodeCateg
+      WHERE C1.NomCateg = Desserts
+      JAND Fournisseur,NoFour IN [
+      SELECT P2.NoFour
+      FROM Produit AS P2
+      INNER JOIN Categorie AS C2 ON P2.CodeCateg- C2.CodeCateg
+      WHERE C2,NomCateg = "Boissons"
+      );</code></p>
+    <p><strong>Résultat :</strong></p>
+    <img src="Resultat_SQL_Mission3.png" alt="resultat">
+  </section>
 </main>
 
 
 <footer>
-    <p>KDOU -- TAYLAN / COMERT / SÖBE</p>
+  <p> Saé S1.04 -- KDou entreprise </p>
+  <p> Groupe 104 -- TAYLAN & COMERT & SÖBE</p>
 </footer>
 
 </body>
