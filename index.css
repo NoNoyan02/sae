@@ -7,7 +7,7 @@
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f9;
@@ -98,7 +98,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
     width: 100%;
     bottom: 0;
 }
@@ -116,5 +115,5 @@ footer {
 }
 
 p {
-    padding-bottom: 20px
+    padding-bottom: 20px;
 }
