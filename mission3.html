@@ -24,12 +24,12 @@
 
 <main>
   <section id="context">
-    <h1>Mission 3 : Analyse SQL</h1>
+    <header>Mission 3 : Analyse SQL</header>
     <p>Dans cette mission, nous avons analysé les données de KDou à l'aide de requêtes SQL sur plusieurs thèmes.</p>
   </section>
 
   <section id="analysis">
-    <h2>Thème : Desserts / Boissons</h2>
+    <header>Thème : Desserts / Boissons</header>
     <p><strong><em> Y en a-t-il qui vendent les deux boissons et desserts ? </em></strong></p>
     <p><strong>Code SQL :</strong> </p><code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
       FROM Fournisseur
@@ -56,7 +56,7 @@
   AND Produit.PrixUnit <100; </code>
     <p><strong>Resultat :</strong></p>
     <img src="3a.png" alt="3a">
-    <h2>Thème : Provenance des produits</h2>
+    <header>Thème : Provenance des produits</header>
     <p><em><strong>Quels sont les pays de provenance de ces catégories ?
     </strong></em></p>
     <code>SELECT DISTINCT Fournisseur.Pays
@@ -75,7 +75,7 @@
     WHERE (Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons')
     AND Produit.PrixUnit >= 50;</code>
     <img src="1a.png" alt="1a">
-    <h3>Thème : La Clientele</h3>
+    <header>Thème : La Clientele</header>
     <p><em><strong>Quels sont couples de clients de Besançon pourrait on créer ?</strong></em></p>
     <code>SELECT C1.SocieteCli AS Client1.SocieteCli AS Client2
     FROM Client AS C1, Client AS C2
@@ -96,7 +96,7 @@
     WHERE DetailCommande.Remise = 0,25);</code>
     <p><strong>Resultat :</strong></p>
     <img src="4c.png" alt="4c">
-    <h4>Thème : l’offre de KDou</h4>
+    <header>Thème : l’offre de KDou</header>
     <p><strong><em>Quels produits n’ont eu que des remises de 10% ou 20% ou pas de remise ? </em></strong></p>
     <code>SELECT DISTINCT Produit.RefProd, Produit.NomProd
     FROM Produit
