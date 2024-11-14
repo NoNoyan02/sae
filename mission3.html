@@ -36,54 +36,59 @@
       et de même pour leurs code catégorie, puis j’ai fait un INNER JOIN entre les
       produits et leurs code catégorie OÙ les noms des catégories étaient des
       desserts et des boissons</p>
-    <p><strong>Code SQL :</strong> </p><code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
-      FROM Fournisseur
-      WHERE Fournisseur.NoFour IN (
-      SELECT Pi.NoFour
-      FROM Produit AS P1
-      INNER JOIN Categorie AS C1 ON P1.CodeCateg = C1.CodeCateg
-      WHERE C1.NomCateg = Desserts
-      JAND Fournisseur,NoFour IN [
-      SELECT P2.NoFour
-      FROM Produit AS P2
-      INNER JOIN Categorie AS C2 ON P2.CodeCateg- C2.CodeCateg
-      WHERE C2,NomCateg = "Boissons"
-      );</code>
+    <p><strong>Code SQL :</strong> </p>
+    <p>
+    <code>
+      SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
+    FROM Fournisseur
+    WHERE Fournisseur.NoFour IN (
+    SELECT Pi.NoFour
+    FROM Produit AS P1
+    INNER JOIN Categorie AS C1 ON P1.CodeCateg = C1.CodeCateg
+    WHERE C1.NomCateg = Desserts
+    JAND Fournisseur,NoFour IN [
+    SELECT P2.NoFour
+    FROM Produit AS P2
+    INNER JOIN Categorie AS C2 ON P2.CodeCateg- C2.CodeCateg
+    WHERE C2,NomCateg = "Boissons"
+    );
+    </code>
+    </p>
     <p><strong>Résultat :</strong></p>
-    <img src="resultat.png" alt="resultat">
+    <img src="Mission3_1.png" alt="resultat">
     <p><strong><em> Pour l’Allemagne pays proche, quels sont les desserts ou boissons vendus à moins
       de 100 euros ? </em></strong></p>
     <p><strong>Code SQL :</strong></p><code>SELECT Produit.NomProd FROM (Categorie
-  INNER JOIN Produit On Categorie.CodeCat = Produit.CodeCateg)
-  INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
-  WHERE Fournisseur.Pays = 'Allemagne'
-  AND (Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons')
-  AND Produit.PrixUnit <100; </code>
+    INNER JOIN Produit On Categorie.CodeCat = Produit.CodeCateg)
+    INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+    WHERE Fournisseur.Pays = 'Allemagne'
+    AND (Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons')
+    AND Produit.PrixUnit <100; </code>
     <p><strong>Resultat :</strong></p>
-    <img src="3a.png" alt="3a">
+    <img src="Mission3_2.png" alt="3a">
     <header>Thème : Provenance des produits</header>
     <p><em><strong>Quels sont les pays de provenance de ces catégories ?
     </strong></em></p>
     <p>voici la requête SQL qui permet d’avoir ce résultat :</p>
     <code>SELECT DISTINCT Fournisseur.Pays
-    FROM (Categorie
-    INNER JOIN Produit ON Categorie.CodeCateg = Prosuit.CodeCateg)
-    INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
-    WHERE Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons';</code>
+      FROM (Categorie
+      INNER JOIN Produit ON Categorie.CodeCateg = Prosuit.CodeCateg)
+      INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+      WHERE Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons';</code>
     <p><strong>Les pays en provenance de ces catégories sont : </strong></p>
-    <img src="1b.png" alt="1b">
+    <img src="Mission3_3.png" alt="1b">
     <p><strong><em>Combien y a-t-il des produits correspondants vendus 50€ ou plus ? On veut les connaître
       avec leur pays d’origine.</em></strong></p>
     <p>Il y a 8 produits correspondants vendus 50€ ou plus, pour cela j’ai
       realisé la requete SQL suivante :</p>
     <code>SELECT Produit.NomProd, Fournisseur.Pays
-    FROM (Categorie
-    INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg)
-    INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
-    WHERE (Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons')
-    AND Produit.PrixUnit >= 50;</code>
+      FROM (Categorie
+      INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg)
+      INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+      WHERE (Categorie.NomCateg = 'Desserts' OR Categorie.NomCateg = 'Boissons')
+      AND Produit.PrixUnit >= 50;</code>
     <p><strong>Resultat :</strong></p>
-    <img src="1a.png" alt="1a">
+    <img src="Mission3_4.png" alt="1a">
     <header>Thème : La Clientele</header>
     <p><em><strong>Quels sont couples de clients de Besançon pourrait on créer ?</strong></em></p>
     <p>Pour savoir si je pouvais créer un couple de client de Besançon, j’ai
@@ -91,14 +96,14 @@
       leur ville c’est Besançon, mais j’ai remarqué qu’avec cette requette qu'il me renvoyais le même client 2 fois, pour éviter ça, j’ai rajouté cette ligne à la fin de ma requête SQL :
       AND C1.CodeCli < C2.CodeCli; </p>
     <code>SELECT C1.SocieteCli AS Client1.SocieteCli AS Client2
-    FROM Client AS C1, Client AS C2
-    WHERE C1.VilleCli = 'Besancon'
-    AND C2.VilleCli = 'Besancon'
-    AND C1.CodeCli < C2.CodeCli;</code>
+      FROM Client AS C1, Client AS C2
+      WHERE C1.VilleCli = 'Besancon'
+      AND C2.VilleCli = 'Besancon'
+      AND C1.CodeCli < C2.CodeCli;</code>
     <p>On ne peut donc pas créer de couple de client venant de Besançon car il est
       seul</p>
     <p><strong>Resultat :</strong></p>
-    <img src="4b.png" alt="4b">
+    <img src="Mission3_5.png" alt="4b">
     <p><strong><em>Certains clients n’ont jamais eu la remise la plus importante de 25%. Qui sont-ils ?</em></strong></p>
     <p>Pour cette requête j’ai utilisé les tables Client, Commande, et
       DetailCommande. J’ai fait une sous-requête qui retourne les CodeCli des
@@ -107,14 +112,14 @@
       j’ai mis NOT IN pour filtrer tout les clients qui ne sont pas dans la liste ayant
       reçu une remise de 25%.</p>
     <code>SELECT DISTINCT Client.CodeCli, Client.SocieteCli
-    FROM Client
-    WHERE Client.CodeCli NOT IN (
-    SELECT Commande.CodeCli
-    FROM Commande
-    INNER JOIN DetailCommande ON Commande.NoCom = DetailCommande.NoCom
-    WHERE DetailCommande.Remise = 0,25);</code>
+      FROM Client
+      WHERE Client.CodeCli NOT IN (
+      SELECT Commande.CodeCli
+      FROM Commande
+      INNER JOIN DetailCommande ON Commande.NoCom = DetailCommande.NoCom
+      WHERE DetailCommande.Remise = 0,25);</code>
     <p><strong>Resultat :</strong></p>
-    <img src="4c.png" alt="4c">
+    <img src="Mission3_6.png" alt="4c">
     <header>Thème : l’offre de KDou</header>
     <p><strong><em>Quels produits n’ont eu que des remises de 10% ou 20% ou pas de remise ? </em></strong></p>
     <p>Pour cette requête j’ai utilisé les tables Produit et DetailCommande,
@@ -125,13 +130,13 @@
       la condition NOT IN avant, donc Cette condition exclut tous les produits
       dont la remise ne correspond pas à 10%, 20%, ou aucune remise.</p>
     <code>SELECT DISTINCT Produit.RefProd, Produit.NomProd
-    FROM Produit
-    WHERE Produit.RefProd NOT IN (
-    SELECT DetailCommande.RefProd
-    FROM DetailCommande
-    WHERE DetailCommande.Remise NOT IN (0.1, 0.2, 0)); </code>
+      FROM Produit
+      WHERE Produit.RefProd NOT IN (
+      SELECT DetailCommande.RefProd
+      FROM DetailCommande
+      WHERE DetailCommande.Remise NOT IN (0.1, 0.2, 0)); </code>
     <p><strong>Resultat :</strong></p>
-    <img src="4d.png" alt="4d">
+    <img src="Mission3_7.png" alt="4d">
 
   </section>
 </main>
