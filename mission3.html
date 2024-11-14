@@ -30,15 +30,27 @@
 
   <section id="analysis">
     <h2>Thème : Desserts / Boissons</h2>
-    <p>Indicateur analysé : <em>Nombre de commandes pour les desserts et les boissons</em></p>
-    <p><strong>Code SQL :</strong> <code>SELECT COUNT(*) FROM commandes WHERE type='dessert';</code></p>
+    <p><em>Quelles sont les fournisseurs qui vendent uniquement des boissons ou des desserts :</em></p>
+    <p><strong>Code SQL :</strong> <code>SELECT DISTINCT Fournisseur.NoFour, Fournisseur.Societe
+      FROM Fournisseur
+      WHERE Fournisseur.NoFour IN (
+      SELECT Pi.NoFour
+      FROM Produit AS P1
+      INNER JOIN Categorie AS C1 ON P1.CodeCateg = C1.CodeCateg
+      WHERE C1.NomCateg = Desserts
+      JAND Fournisseur,NoFour IN [
+      SELECT P2.NoFour
+      FROM Produit AS P2
+      INNER JOIN Categorie AS C2 ON P2.CodeCateg- C2.CodeCateg
+      WHERE C2,NomCateg = "Boissons"
+      );</code></p>
     <p><strong>Résultat :</strong> <em>(Capture d'écran ou tableau ici)</em></p>
   </section>
 </main>
 
 
 <footer>
-  <p>KDOU -- TAYLAN / COMERT / SOBE</p>
+  <p>KDOU -- TAYLAN / COMERT / SÖBE</p>
 </footer>
 
 </body>
