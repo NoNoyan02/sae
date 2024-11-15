@@ -6,94 +6,98 @@
     <title>Mission 1 - Étude des données</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mission1.html">Mission 1</a></li>
+                <li><a href="mission2.html">Mission 2</a></li>
+                <li><a href="mission3.html">Mission 3</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="mission1.html">Mission 1</a></li>
-            <li><a href="mission2.html">Mission 2</a></li>
-            <li><a href="mission3.html">Mission 3</a></li>
-            <li><a href="conclusion.html">Conclusion</a></li>
-        </ul>
-    </nav>
-</header>
+    <main>
+        <section id="context">
+            <h1>Mission 1 : Étude des données</h1>
+            <p>Dans cette première mission, nous avons étudié les données de l'entreprise KDou pour en comprendre
+                la structure et les caractéristiques.
+            </p>
+        </section>
 
+        <section id="bilan">
+            <h2>Bilan de l’étude des données</h2>
+            <p>Nous avons analysé les données de KDou en nous concentrant sur les éléments principaux suivants :</p>
+            <ul>
+                <li>Structure des tables de données</li>
+                <li>Relations entre les entités (ex : clients, produits)</li>
+                <li>Qualité des données (ex : données manquantes ou incohérentes)</li>
+            </ul>
+            <p>Exemple d’analyse :</p>
+            <table>
+                <tr>
+                    <th>Entité</th>
+                    <th>Description</th>
+                    <th>Observations</th>
+                </tr>
+                <tr>
+                    <td>Fournisseurs</td>
+                    <td>Données des Fournisseurs irréguliers et non coherent</td>
+                    <td>Les fournisseurs des États-Unis sont représentés de 3 manières different
+                        (voir exemple avec image en bas).
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fiabilité des données</td>
+                    <td>Incohérences et des choix discutables </td>
+                    <td>"São Paulo" apparaît deux fois avec la même orthographe et le même pays (Brésil)
+                        Pour les États-Unis, on observe deux orthographes différentes : "Etats-Unis" et
+                        "USA".
+                        Il y a deux mentions de "Chef des ventes" dans la répartition par type de contact. Si
+                        cela représente deux rôles différents (peut-être à des niveaux distincts), une manière
+                        plus claire serait à envisager. Sinon, ça pourrait être une duplication.
+                        Il y a "Versailles" deux fois sur le graphique avec une valeur de 0,5.
+                        Il y a une mention concernant un client spécifique, "L'Ancienne Auberge," qui a
+                        signalé des problèmes de gestion, il faudrait sûrement les prendre en considération
+                        pour s’améliorer.
+                    </td>
+                </tr>
+            </table>
+            <p>Voici un exemple de ce qu'on pouvait faire avec ces données :</p>
+            <div>
+                <img src="offre_produit_suedois.png" alt="Exemple de données" class="img-resize">
+            </div>
 
-<main>
-    <section id="context">
-        <h1>Mission 1 : Étude des données</h1>
-        <p>Dans cette première mission, nous avons étudié les données de l'entreprise KDou pour en comprendre la structure et les caractéristiques.</p>
-    </section>
+            <p>Et voici les incohérences listées précédemment :</p>
+            <div class="image-flex-container">
+                <img src="saopaulo.png" alt="São Paulo">
+                <img src="USA.png" alt="USA">
+                <img src="Versailles.png" alt="Versailles">
+            </div>
+        </section>
 
-    <section id="bilan">
-        <h2>Bilan de l’étude des données</h2>
-        <p>Nous avons analysé les données de KDou en nous concentrant sur les éléments principaux suivants :</p>
-        <ul>
-            <li>Structure des tables de données</li>
-            <li>Relations entre les entités (ex : clients, produits)</li>
-            <li>Qualité des données (ex : données manquantes ou incohérentes)</li>
-        </ul>
-        <p>Exemple d’analyse :</p>
-        <table>
-            <tr>
-                <th>Entité</th>
-                <th>Description</th>
-                <th>Observations</th>
-            </tr>
-            <tr>
-                <td>Fournisseurs</td>
-                <td>Données des Fournisseurs irréguliers et non coherent</td>
-                <td>Les fournisseurs des États-Unis sont représentés de 3 manières different (voir exemple avec image en bas).</td>
-            </tr>
-            <tr>
-                <td>Fiabilité des données</td>
-                <td>Incohérences et des choix discutables </td>
-                <td>"São Paulo" apparaît deux fois avec la même orthographe et le même pays (Brésil)
-                    Pour les États-Unis, on observe deux orthographes différentes : "Etats-Unis" et
-                    "USA".
-                    Il y a deux mentions de "Chef des ventes" dans la répartition par type de contact. Si
-                    cela représente deux rôles différents (peut-être à des niveaux distincts), une manière
-                    plus claire serait à envisager. Sinon, ça pourrait être une duplication.
-                    Il y a "Versailles" deux fois sur le graphique avec une valeur de 0,5.
-                    Il y a une mention concernant un client spécifique, "L'Ancienne Auberge," qui a
-                    signalé des problèmes de gestion, il faudrait sûrement les prendre en considération
-                    pour s’améliorer.</td>
-            </tr>
-        </table>
-        <p>Voici un exemple de ce qu'on pouvait faire avec ces données :</p>
-        <div>
-            <img src="offre_produit_suedois.png" alt="Exemple de données" class="img-resize">
-        </div>
-
-        <p>Et Voici les incohérences listées précédemment :</p>
-        <div class="image-flex-container">
-            <img src="saopaulo.png" alt="São Paulo">
-            <img src="USA.png" alt="USA">
-            <img src="Versailles.png" alt="Versailles">
-        </div>
-    </section>
-
-    <section id="conclusion">
-        <h2>Perspectives d’amélioration et Conclusion</h2>
-        <p>Pour améliorer la qualité de la base de données, nous recommandons de :</p>
-        <ul>
-            <li>Uniformiser les orthographes des pays dans toutes les colonnes pour éviter les doublons inutiles (ex. : "Etats-Unis" → "USA").</li>
-            <li>De supprimer ou eviter les doublons, Fusionner les lignes comme pour "São Paulo" et les doublons dans les noms de villes, pays et types de contact</li>
-            <li> De Clarification des rôles :
-                Les fonctions similaires comme "Chef  des ventes" et "Chef des ventes"
-                pourraient être fusionnées ou davantage expliquées si elles représentent des rôles qui
-                ne sont pas les mêmes (il y a un espace en trop sur l'un).</li>
-            <li>Réorganisation des données clients :
-                Inclure des informations supplémentaires sur les clients qui se plaignent ou qui
-                nécessitent une attention particulière et de les prendre en considération. Cela
-                permettrait de mieux relier les réclamations aux données de fournisseurs et aux
-                performances et d’améliorer nos services</li>
-        </ul>
+        <section id="conclusion">
+            <h2>Perspectives d’amélioration et Conclusion</h2>
+            <p>Pour améliorer la qualité de la base de données, nous recommandons de :</p>
+            <ul>
+                <li>Uniformiser les orthographes des pays dans toutes les colonnes pour éviter les doublons inutiles (ex. : "Etats-Unis" → "USA").</li>
+                <li>De supprimer ou eviter les doublons, Fusionner les lignes comme pour "São Paulo" et les doublons dans les noms de villes, pays et types de contact</li>
+                <li> De Clarification des rôles :
+                    Les fonctions similaires comme "Chef  des ventes" et "Chef des ventes"
+                    pourraient être fusionnées ou davantage expliquées si elles représentent des rôles qui
+                    ne sont pas les mêmes (il y a un espace en trop sur l'un).</li>
+                <li>Réorganisation des données clients :
+                    Inclure des informations supplémentaires sur les clients qui se plaignent ou qui
+                    nécessitent une attention particulière et de les prendre en considération. Cela
+                    permettrait de mieux relier les réclamations aux données de fournisseurs et aux
+                    performances et d’améliorer nos services</li>
+            </ul>
         <p>En conclusion, cette mission nous a permis de mieux comprendre les données disponibles chez KDou et de poser les bases d’une exploitation optimale.</p>
-    </section>
+        </section>
 </main>
 
 
