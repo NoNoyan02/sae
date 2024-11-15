@@ -7,6 +7,10 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -15,9 +19,8 @@ body {
     color: #333;
     background-color: #f4f4f9;
     min-height: 100vh;
-
+    flex: 1;
 }
-
 
 header {
     background-color: #333;
@@ -39,21 +42,21 @@ header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    margin-right: 50px;
+    margin-right: 60px;
 }
 
 header nav ul li a:hover {
     text-decoration: underline;
 }
 
-
 main {
-    padding: 20px;
+    padding: 10px;
     max-width: 800px;
     margin: auto;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 h1, h2 {
@@ -61,11 +64,9 @@ h1, h2 {
     margin-bottom: 0.5rem;
 }
 
-
 main section {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-
 
 ul {
     margin: 1rem 0;
@@ -76,12 +77,12 @@ ul li {
     margin-bottom: 0.5rem;
 }
 
-
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
     background-color: #f9f9f9;
+    margin-bottom: 10px;
 }
 
 table, th, td {
@@ -98,16 +99,15 @@ th {
     color: #fff;
 }
 
-
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
     width: 100%;
-    bottom: 0;
+    bottom: auto;
+    margin-top: auto;
 }
-
 
 @media (max-width: 600px) {
     header nav ul li {
@@ -133,23 +133,23 @@ img {
 .image-flex-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     flex-wrap: wrap;
-    margin: 20px auto;
-    max-width: 80%;
+    margin: auto;
+    max-width: 100%;
 }
 
 .image-flex-container img {
     width: 100%;
-    max-width: 200px;
-    height: auto;
-    border: 2px solid #ccc;
+    max-width: 305px;
+    height: 200px;
+    border: 2px solid #000;
     border-radius: 8px;
 }
 
 .img-resize {
-    max-width: 80%;
-    height: auto;
+    max-width: 90%;
+    height: 150px;
     display: block;
-    margin: 0 auto;
+    margin-bottom:10px;
 }
