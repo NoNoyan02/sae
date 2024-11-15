@@ -1,92 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mission 2 - Interface et Indicateurs</title>
-  <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 2 - Interface et Indicateurs</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="mission1.html">Mission 1</a></li>
+        <li><a href="mission2.html">Mission 2</a></li>
+        <li><a href="mission3.html">Mission 3</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="mission1.html">Mission 1</a></li>
-      <li><a href="mission2.html">Mission 2</a></li>
-      <li><a href="mission3.html">Mission 3</a></li>
-      <li><a href="conclusion.html">Conclusion</a></li>
-    </ul>
-  </nav>
-</header>
 
+  <main>
+    <section id="context">
+      <h1>Mission 2 : Interface et Indicateurs</h1>
+      <p>
+        L’objectif de cette mission est de commencer à exploiter la base de données de
+        l’entreprise KDou pour pouvoir par la suite avoir des analyses et indicateurs pertinents. On
+        souhaite faire des requêtes avec le logiciel Low Code Access. Ces requêtes va nous permettre d'analyser les donnes de KDou plus correctement.
+      </p>
+    </section>
 
-<main>
-  <section id="context">
-    <h1>Mission 2 : Interface et Indicateurs</h1>
-    <p>
-      L’objectif de cette mission est de commencer à exploiter la base de données de
-      l’entreprise KDou pour pouvoir par la suite avoir des analyses et indicateurs pertinents. On
-      souhaite faire des requêtes avec le logiciel Low Code Access. Ces requêtes va nous permettre d'analyser les donnes de KDou plus correctement.
-    </p>
-  </section>
+    <section id="indicators">
+      <h2>Indicateurs analysés</h2>
+      <div class="indicator">
 
-  <section id="indicators">
-    <h2>Indicateurs analysés</h2>
-    <div class="indicator">
-      <header> Indicateur 1 : Le prix moyen de vente des produits, le prix minimum et le prix maximum.</header>
-      <p><strong> Énoncé :</strong> Analyse de prix des produits que KDou vend </p>
-      <p><strong>Interprétation :</strong> Il faut comparer les prix des produits. </p>
-      <p><strong>Résultat :</strong> <img src="Mission2Indicateur1.png" alt="Les Prix des Produits"></p>
-      <p><strong>Code SQL :</strong>
-        <code>
-        SELECT
-        AVG(PrixUnit) AS PrixMoyen,
-        MIN(PrixUnit) AS PrixMinimum,
-        MAX(PrixUnit) AS PrixMaximum
-        FROM Produit;
-      </code></p>
+        <header> Indicateur 1 : Le prix moyen de vente des produits, le prix minimum et le prix maximum.</header>
+          <p><strong> Énoncé :</strong> Analyse de prix des produits que KDou vend </p>
+          <p><strong>Interprétation :</strong> Il faut comparer les prix des produits. </p>
+          <p><strong>Résultat :</strong> <img src="Mission2Indicateur1.png" alt="Les Prix des Produits"></p>
+          <p><strong>Code SQL :</strong>
+            <code>
+              <br> SELECT
+              AVG(PrixUnit) AS PrixMoyen,
+              MIN(PrixUnit) AS PrixMinimum,
+              MAX(PrixUnit) AS PrixMaximum <br>
+              FROM Produit;
+            </code>
+          </p>
 
-      <header>Indicateur 2 : Le chiffre d’affaire total généré avec les informations dont on dispose.</header>
-      <p><strong>Énoncé :</strong> Analyse du nombre de clients ayant passé plusieurs commandes.</p>
-      <p><strong>Interprétation :</strong> Les clients réguliers représentent X% du chiffre d'affaires.</p>
-      <p><strong>Résultat :</strong> <img src="Mission2Indicateur2.png" alt="Chiffre d'affaire"> </p>
-      <p><strong>Code SQL :</strong>
-        <code>
-          SELECT NomProd
-        FROM Produit
-        WHERE QteParUnite LIKE '*carton*' OR QteParUnite LIKE '*bouteille*';
-      </code></p>
+        <header>Indicateur 2 : Le chiffre d’affaire total généré avec les informations dont on dispose.</header>
+          <p><strong>Énoncé :</strong> Calcul de chiffre d'affaires.</p>
+          <p><strong>Interprétation :</strong> Le chiffres d'affaires est important pour les analys.</p>
+          <p><strong>Résultat :</strong> <img src="Mission2Indicateur2.png" alt="Chiffre d'affaire"> </p>
+          <p><strong>Code SQL :</strong>
+            <code>
+              <br> SELECT NomProd <br>
+                   FROM Produit
+              <br>WHERE QteParUnite LIKE '*carton*' OR QteParUnite LIKE '*bouteille*';<br>
+            </code>
+          </p>
 
-      <header>Indicateur 3 : Des clients qui n’ont pas encore passé de commande</header>
-      <p><strong>Énoncé :</strong> Analyse d'état des clients </p>
-      <p><strong>Interprétation :</strong> Pour connaitre mieux nos clients, faut voir qui sont actif et commandent. </p>
-      <p><strong>Résultat :</strong> <img src="Mission2Indicateur31.png" alt="Les tableaux nécessaires.">
-      <img src="Mission2Indictaeur32.png" alt="Liste des clients"></p>
-      <p><strong>Code SQL :</strong>
-        <code>
-          SELECT SUM(DetailCommande.PrixUnitCli * DetailCommande.QteCom * (1 - DetailCommande.Remise)) AS ChiffreAffaireTotal
-        FROM DetailCommande;
-      </code></p>
+        <header>Indicateur 3 : Des clients qui n’ont pas encore passé de commande</header>
+          <p><strong>Énoncé :</strong> Analyse d'état des clients </p>
+          <p><strong>Interprétation :</strong> Pour connaitre mieux nos clients, faut voir qui sont actif et commandent. </p>
+          <p><strong>Résultat :</strong> <img src="Mission2Indicateur31.png" alt="Les tableaux nécessaires.">
+            <img src="Mission2Indictaeur32.png" alt="Liste des clients"></p>
+          <p><strong>Code SQL :</strong>
+            <code>
+              <br>SELECT SUM(DetailCommande.PrixUnitCli * DetailCommande.QteCom * (1 - DetailCommande.Remise))
+                  AS ChiffreAffaireTotal<br>
+                  FROM DetailCommande;
+            </code>
+          </p>
 
-      <header>Indicateur 4 : Les produits conditionnés dans du carton ou dans du verre </header>
-      <p><strong>Énoncé :</strong> Pour être "éco-friendly", faut regarder ce que
-      kdou vend. </p>
-      <p><strong>Interprétation :</strong> C'est important de savoir le quantite du carton ou verre que KDou vend pour leur objectif d'être "éco-friendly"</p>
-      <p><strong>Résultat :</strong> <img src="Mission2Indicateur4.png" alt=" Liste des produits"></p>
-      <p><strong>Code SQL :</strong>
-        <code>SELECT Client.ContactCli
-        FROM Client
-        LEFT JOIN Commande ON Client.CodeCli = Commande.CodeCli
-        WHERE Commande.NoCom IS NULL;
-        </code></p>
+        <header>Indicateur 4 : Les produits conditionnés dans du carton ou dans du verre </header>
+          <p><strong>Énoncé :</strong> Pour être "éco-friendly", faut regarder ce que
+            kdou vend.
+          </p>
+          <p><strong>Interprétation :</strong> C'est important de savoir le quantite du carton ou verre que KDou vend pour leur objectif d'être "éco-friendly"</p>
+          <p><strong>Résultat :</strong> <img src="Mission2Indicateur4.png" alt=" Liste des produits"></p>
+          <p><strong>Code SQL :</strong>
+            <code>
+              <br>SELECT Client.ContactCli<br>
+                  FROM Client
+              <br>LEFT JOIN Commande ON Client.CodeCli = Commande.CodeCli<br>
+                  WHERE Commande.NoCom IS NULL;
+            </code>
+          </p>
 
-    </div>
-
-  </section>
-</main>
-
+      </div>
+    </section>
+  </main>
 
 <footer>
   <p> Saé S1.04 -- KDou entreprise </p>
